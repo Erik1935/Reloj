@@ -5,18 +5,12 @@
  */
 package contenedor;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import static java.lang.Thread.sleep;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,15 +19,12 @@ import javax.swing.JPanel;
  *
  * @author erikj
  */
-public class Main extends JPanel implements Runnable,KeyListener {
-    private Principal p;
+public class Main extends JPanel implements Runnable{
     private int x = 0;
     private int y = 0;
       // Graphics g;
     public Main(){
         setFocusable(true);
-        p = new Principal();
-          addKeyListener((KeyListener) this);
           Thread t = new Thread(this);
         t.start();
     }
@@ -103,29 +94,5 @@ public class Main extends JPanel implements Runnable,KeyListener {
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public void keyTyped(KeyEvent e) {
-		}
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-                    if(KeyEvent.getKeyText(e.getKeyCode()).equals("Izquierda")){
-                        x = p.getX();
-                       // System.out.println("X:Clic "+x);
-                        x = x+1;
-                        p.setX(x);
-                    }else if(KeyEvent.getKeyText(e.getKeyCode()).equals("Derecha")){
-                         y = p.getY();
-                        // System.out.println("y:Clic "+y);
-                        y = y+1;
-                        p.setY(y);
-                        
-                    }
-                        //System.out.println("entro");
-//			System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-			//System.out.println("keyReleased="+KeyEvent.getKeyText(e.getKeyCode()));
-		}
+   
 }
